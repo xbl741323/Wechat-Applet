@@ -1,0 +1,28 @@
+<!--pages/my/my.wxml-->
+<view class="my">
+    <block wx:if="{{hasUserInfo}}">
+        <view class="my_login_content">
+            <image class="my_head" src="{{userInfo.avatarUrl}}"></image>
+            <view class="my_head_name">{{userInfo.nickName}}</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="my_login_content" bindtap="getUserData">
+            <image class="my_head" src="../../image/unlogin_head.png"></image>
+            <view class="my_head_btn">B站登录</view>
+        </view>
+    </block>
+    <view class="my_option">
+        <view class="my_option_title">
+            历史记录
+        </view>
+        <view class="my_option_point"></view>
+    </view>
+    <view class="my_option">
+        <view class="my_option_title">
+            意见反馈
+        </view>
+        <view class="my_option_point"></view>
+    </view>
+    <view wx:if="{{hasUserInfo}}" class="my_layout">退出登录</view>
+</view>

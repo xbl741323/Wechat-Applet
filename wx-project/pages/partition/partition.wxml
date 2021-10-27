@@ -1,0 +1,7 @@
+<!--pages/partition/partition.wxml-->
+<view class="classify">
+    <view class="'classify_item'" wx:for="{{classify}}" wx:key="index" wx:for-item="item">
+        <image src="{{item.icon}}"></image>
+        <view>{{ item.title }}</view>
+    </view>
+</view>

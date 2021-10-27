@@ -1,0 +1,27 @@
+/* pages/partition/partition.wxss */
+.classify{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.classify_item{
+    width: 25%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+.classify_solo_item{
+    flex-grow: 0 !important; 
+}
+.classify_item image{
+    width: 35px;
+    height: 35px;
+}
+.classify_item view{
+   font-size: 11px;
+   color: rgb(85, 88, 90);
+}
