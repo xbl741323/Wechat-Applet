@@ -5,6 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
+    danmuList:[
+      {
+        text:'甘雨yyds',
+        color:'#fff',
+        time:1
+      },
+      {
+        text:'甘雨yyds',
+        color:'#fff',
+        time:2
+      },
+      {
+        text:'甘雨yyds',
+        color:'#fff',
+        time:3
+      },
+      {
+        text:'甘雨yyds',
+        color:'#fff',
+        time:4
+      },
+      {
+        text:'甘雨yyds',
+        color:'#fff',
+        time:5
+      },
+      {
+        text:'甘雨yyds',
+        color:'#fff',
+        time:6
+      },
+
+    ],
     userInfo: {},
     //视频详情
     videoInfo: {

@@ -4,7 +4,8 @@
     <!-- 视频详情 -->
     <view class="video_info">
         <!-- 视频标签 -->
-        <video src="https://static-tst.wotao.com/icon/head/a7b63ef97fbb494facf2f065fb415013.mp4" controls="true" page-page-gesture="true" enable-play-gesture="true"></video>
+        <video src="https://static-tst.wotao.com/icon/head/a7b63ef97fbb494facf2f065fb415013.mp4" controls="true" danmu-btn="true"
+        show-screen-lock-button="true" enable-danmu="true" autoplay="true" enable-auto-rotation="true"  vslide-gesture-in-fullscreen="true" danmu-list="{{danmuList}}" title="甘雨pv" page-page-gesture="true" show-snapshot-button="true" enable-play-gesture="true"></video>
 
 
         <!-- 视频简介与评论 -->
@@ -39,8 +40,8 @@
             <view class="video_detail_commentcount">{{videoInfo.commentCount}}</view>
             <!-- 发布日期 -->
             <view class="video_detail_date">{{videoInfo.date}}</view>
-             <!-- 作者姓名 -->
-             <view class="video_detail_author">BVIhQ4ylq7bg</view>
+            <!-- 作者姓名 -->
+            <view class="video_detail_author">BVIhQ4ylq7bg</view>
         </view>
     </view>
 
