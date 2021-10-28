@@ -1,42 +1,44 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/my/my",
-    "pages/partition/partition"
-  ],
-  "tabBar": {
-    "custom": false,
-    "color": "#7A7E83",
-    "selectedColor": "#e44b9e",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-        {
-            "pagePath": "pages/index/index",
-            "iconPath": "image/index.png",
-            "selectedIconPath": "image/index_active.png",
-            "text": "首页"
-        },
-        {
-          "pagePath": "pages/partition/partition",
-          "iconPath": "image/partition.png",
-          "selectedIconPath": "image/partition_active.png",
-          "text": "分区"
-      },
-        {
-            "pagePath": "pages/my/my",
-            "iconPath": "image/my.png",
-            "selectedIconPath": "image/my_active.png",
-            "text": "我的"
-        }
-    ]
-},
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "哔哩哔哩",
-    "navigationBarTextStyle":"black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/my/my",
+        "pages/partition/partition",
+        "pages/detail/detail",
+        "pages/partDetail/detail"
+    ],
+    "tabBar": {
+        "custom": false,
+        "color": "#7A7E83",
+        "selectedColor": "#e44b9e",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "image/index.png",
+                "selectedIconPath": "image/index_active.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/partition/partition",
+                "iconPath": "image/partition.png",
+                "selectedIconPath": "image/partition_active.png",
+                "text": "分区"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "iconPath": "image/my.png",
+                "selectedIconPath": "image/my_active.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "哔哩哔哩",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

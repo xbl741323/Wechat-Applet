@@ -1,0 +1,21 @@
+/* components/imgTitle/imgTitle.wxss */
+.imgTitle {
+    margin: 0 30rpx 6rpx 0;
+}
+
+.title-item {
+    display: inline-block;
+    padding: 6rpx 26rpx;
+    border-radius: 10rpx;
+    font-size: 25rpx;
+}
+
+.nav {
+    white-space: nowrap;
+    padding: 10rpx;
+}
+
+.active {
+    background: rgb(231, 236, 231);
+    color: rgb(247, 125, 125);
+}

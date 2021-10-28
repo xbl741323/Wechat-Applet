@@ -1,4 +1,60 @@
 <!--index.wxml-->
-<view class="container">
+<view class="main">
+
+    <!-- 公共头部 -->
+    <header></header>
+
+    <!-- 首页导航 -->
+    <view class="nav_wrap">
+        <!-- 自己滚动区域的组件 -->
+        <scroll-view class="nav" scroll-x>
+            <view bindtap="activeNav" data-index="{{index}}" class="nav_item {{ index == currentIndexNav? 'active':'' }}" wx:for="{{navList}}" wx:key="index">
+                {{item.text}}
+            </view>
+        </scroll-view>
+    </view>
+
+    <!-- 轮播图区域 -->
+    <view class="slides">
+        <swiper autoplay="true" indicator-dots="true" circular="true">
+            <swiper-item wx:for="{{swiperList}}" wx:key="index">
+                <navigator>
+                    <image src="{{item.url}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 视频列表 -->
+    <view class="video_wrap">
+        <navigator url="../detail/detail?id={{item.id}}" class="vidoe_item" wx:for="{{videosList}}" wx:key="index">
+            <!-- 图片容器 -->
+            <view class="video_img">
+                <!-- 图片 -->
+                <image mode="widthFix" src="{{item.imgSrc}}"></image>
+                <!-- 播放量加评论 -->
+                <view class="video_info">
+                    <!-- 播放量 -->
+                    <view class="play_count_wrap">
+                        <!-- 图标 -->
+                        <text class="fa fa-play-circle-o"></text>
+                        <!-- 数值 -->
+                        <text class="play_count">{{item.playCount}}</text>
+                    </view>
+                    <!-- 评论量 -->
+                    <view class="comment_count_row">
+                        <!-- 图标 -->
+                        <text class="fa fa-commenting-o"></text>
+                        <!-- 数值 -->
+                        <text class="comment_count">{{item.commentCount}}</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 标题 -->
+            <view class="video_title">
+                <view class="video_title_content">{{item.desc}}</view>
+            </view>
+        </navigator>
+    </view>
 
 </view>

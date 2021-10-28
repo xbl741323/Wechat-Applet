@@ -108,5 +108,11 @@ Page({
                 title:"游戏赛事"
             },
         ]
-    }
+    },
+    toDetail(e){
+        console.log(e.currentTarget.dataset.index)
+        wx.navigateTo({
+          url: '../../pages/partDetail/detail',
+        })
+    },
 })

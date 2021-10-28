@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "imgItem":"../../components/imgItem/imgItem",
+    "imgTitle":"../../components/imgTitle/imgTitle"
+  }
+}

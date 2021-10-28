@@ -24,5 +24,5 @@
         </view>
         <view class="my_option_point"></view>
     </view>
-    <view wx:if="{{hasUserInfo}}" class="my_layout">退出登录</view>
+    <view wx:if="{{hasUserInfo}}" class="my_layout" bindtap="layOut">退出登录</view>
 </view>

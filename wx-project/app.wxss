@@ -8,3 +8,9 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+@import "styles/font-awesome.wxss";
+
+page, view, image, swiper, swiper-item, navigator, video {
+  box-sizing: border-box;
+}

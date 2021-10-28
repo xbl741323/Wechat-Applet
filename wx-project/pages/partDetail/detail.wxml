@@ -1,0 +1,7 @@
+<!--pages/partDetail/detail.wxml-->
+<view>
+    <imgTitle id="title" titleList="{{titleList}}" bind:change-title='changeTitle'></imgTitle>
+    <view wx:for="{{imgList}}" wx:key="index" wx:for-item="item">
+        <imgItem imgInfo="{{item}}"></imgItem>
+    </view>
+</view>

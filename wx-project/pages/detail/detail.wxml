@@ -1,0 +1,66 @@
+<!--pages/detail/detail.wxml-->
+<view class="main">
+
+    <!-- 视频详情 -->
+    <view class="video_info">
+        <!-- 视频标签 -->
+        <video src="https://static-tst.wotao.com/icon/head/a7b63ef97fbb494facf2f065fb415013.mp4" controls="true" page-page-gesture="true" enable-play-gesture="true"></video>
+
+
+        <!-- 视频简介与评论 -->
+        <view class="video_intro">
+            <view class="intro_desc">简介</view>
+            <view class="intro_comment">评论 950</view>
+            <view class="intro_barrage">点我发弹幕 | 弹</view>
+        </view>
+
+        <!-- up主相关信息 -->
+        <view class="video_auther" wx:if="{{userInfo.avatarUrl}}">
+            <view class="left">
+                <view class="img">
+                    <image src="{{ userInfo.avatarUrl }}"></image>
+                </view>
+                <view class="desc">
+                    <view class="name">{{ userInfo.nickName }}</view>
+                    <view class="fans_count">25.1万粉丝</view>
+                </view>
+            </view>
+            <view class="right"> + 关 注</view>
+        </view>
+
+
+        <!-- 视频标题 -->
+        <view class="video_title">{{videoInfo.videoTitle}}</view>
+        <!-- 作者与视频信息 -->
+        <view class="video_detail">
+            <!-- 播放量 -->
+            <view class="video_detail_playcount">{{videoInfo.playCount}}</view>
+            <!-- 评论量 -->
+            <view class="video_detail_commentcount">{{videoInfo.commentCount}}</view>
+            <!-- 发布日期 -->
+            <view class="video_detail_date">{{videoInfo.date}}</view>
+             <!-- 作者姓名 -->
+             <view class="video_detail_author">BVIhQ4ylq7bg</view>
+        </view>
+    </view>
+
+    <!-- 推荐视频 -->
+    <view class="video_other">
+        <navigator url="" wx:for="{{othersVideo}}" wx:key="index" class="video_item">
+            <!-- 图片 -->
+            <view class="left">
+                <image src="{{item.imgSrc}}"></image>
+            </view>
+            <!-- 视频信息 -->
+            <view class="right">
+                <view class="right_title">{{item.desc}}</view>
+                <view class="right_author">瑟龙不知单身</view>
+                <view class="right_desc">
+                    <view>{{item.playCount}}</view>
+                    <view>{{item.commentCount}}</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+
+</view>

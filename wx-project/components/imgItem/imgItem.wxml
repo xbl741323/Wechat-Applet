@@ -1,0 +1,14 @@
+<!--components/imgItem/imgItem.wxml-->
+<view class="img-item">
+    <view class="img-item-left">
+        <image class="item-left-img" src="{{imgInfo.imgUrl}}"></image>
+    </view>
+    <view class="img-item-right">
+        <view class="item-right-title">{{ imgInfo.title }}</view>
+        <view class="item-right-type">{{ imgInfo.type }}</view>
+        <view class="item-right-comment">
+            <view class="right-comment-view">{{ imgInfo.viewCount }}</view>
+            <view class="right-comment-comment">{{ imgInfo.commentCount }}</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+/* components/imgItem/imgItem.wxss */
+.img-item {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid rgb(240, 236, 236);
+    padding: 12rpx 0
+}
+
+.img-item-left {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+}
+
+.img-item-left .item-left-img {
+    width: 90%;
+    height: 160rpx;
+    border-radius: 10rpx;
+}
+
+.img-item-right {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    font-size: 24rpx;
+}
+.item-right-title{
+    height: 65rpx;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.item-right-type{
+    margin-top: 30rpx;
+    color: rgb(139, 135, 135);
+}
+.item-right-comment{
+    margin-top: 4rpx;
+    display: flex;
+    color: rgb(139, 135, 135);
+}
+.right-comment-view{
+    
+}
+.right-comment-comment{
+margin-left: 160rpx;
+}

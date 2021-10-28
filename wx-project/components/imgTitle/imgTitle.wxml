@@ -1,0 +1,8 @@
+<!--components/imgTitle/imgTitle.wxml-->
+<view class="imgTitle">
+    <scroll-view class="nav" scroll-x="true">
+        <view wx:for="{{titleList}}" wx:key="index" data-index="{{index}}" bindtap="changeIndex" class="title-item {{cIndex == index?'active':''}}">
+            {{ item.title }}
+        </view>
+    </scroll-view>
+</view>

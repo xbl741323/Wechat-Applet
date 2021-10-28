@@ -1,0 +1,67 @@
+/* components/header/herder.wxss */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.logo {
+    flex: 2;
+    display: flex;
+}
+
+.logo image {
+    width: 110rpx;
+    height: 50rpx;
+    margin-left: 10rpx;
+}
+
+.search_icon {
+    flex: 5;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search_icon input{
+    width: 100%;
+    height: 20rpx;
+    background: rgba(247, 246, 246, 0.842);
+    border-radius: 20px;
+    padding: 5rpx 0 5rpx 60rpx;
+    font-size: 22rpx;
+}
+
+.search_icon image {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.user_icon {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_icon image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.down_app {
+    flex: 2;
+    background: #fb7299;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    padding: 10rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    font-size: 25rpx;
+    margin-right: 10rpx;
+}
