@@ -1,4 +1,5 @@
 <!--pages/my/my.wxml-->
+<wxs src="../../utils/util.wxs" module="tools"></wxs>
 <view class="my">
     <block wx:if="{{hasUserInfo}}">
         <view class="my_login_content">
@@ -14,13 +15,13 @@
     </block>
     <view class="my_option">
         <view class="my_option_title">
-            历史记录
+            {{tools.showTitle(0)}}
         </view>
         <view class="my_option_point"></view>
     </view>
     <view class="my_option">
         <view class="my_option_title">
-            意见反馈
+            {{tools.showTitle(1)}}
         </view>
         <view class="my_option_point"></view>
     </view>

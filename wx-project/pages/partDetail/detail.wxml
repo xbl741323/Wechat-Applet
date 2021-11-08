@@ -1,6 +1,6 @@
 <!--pages/partDetail/detail.wxml-->
 <view>
-    <imgTitle id="title" titleList="{{titleList}}" bind:change-title='changeTitle'></imgTitle>
+    <imgTitle wx:if="{{isCreate}}" id="title" bind:remove-child="removeChild" titleList="{{titleList}}" bind:change-title='changeTitle'></imgTitle>
     <view wx:for="{{imgList}}" wx:key="index" wx:for-item="item">
         <imgItem imgInfo="{{item}}"></imgItem>
     </view>

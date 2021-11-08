@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        isCreate:true,
         titleList: [{
             title: "推荐"
         },
@@ -91,6 +92,12 @@ Page({
             commentCount: "3.4万"
         },
         ]
+    },
+    removeChild(){
+        console.log("tid")
+        this.setData({
+            isCreate:false
+        })
     },
 
     changeTitle(e) {

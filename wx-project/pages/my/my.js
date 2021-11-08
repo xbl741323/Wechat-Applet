@@ -1,4 +1,6 @@
 // pages/my/my.js
+import { formatTime } from '../../utils/util'
+import { getTestData  } from '../../utils/api'
 Page({
     data: {
         userInfo: {},
@@ -32,8 +34,22 @@ Page({
             }
         })
     },
+    getData() {
+        getTestData().then((res)=>{
+            console.log(res)
+        })
+        // wx.request({
+        //     url: 'https://m.wotao.com/service/hotSearch/5',
+        //     method: 'get',
+        //     success: (res) => {
+        //         console.log(res.data)
+        //     }
+        // })
+    },
     onLoad() {
+        this.getData()
         console.log('初始化中')
+        console.log(formatTime())
         console.log(wx.getStorageSync('userInfo'))
         if (wx.getStorageSync('userInfo')) {
             this.setData({

@@ -127,7 +127,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
+    console.log(options)
     //获取对应视频id
     let videoId = options.id
     console.log(wx.getStorageSync('userInfo'))

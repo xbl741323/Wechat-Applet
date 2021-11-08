@@ -34,7 +34,7 @@
         ]
     },
     "window": {
-        "backgroundTextStyle": "light",
+        "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "哔哩哔哩",
         "navigationBarTextStyle": "black"

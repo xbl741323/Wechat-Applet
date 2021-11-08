@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "header":"../../components/header/herder"
-  }
+  },
+  "enablePullDownRefresh":true
 }

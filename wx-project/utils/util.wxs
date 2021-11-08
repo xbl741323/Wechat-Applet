@@ -1,0 +1,12 @@
+function showTitle(type) {
+    switch (type) {
+        case 0:
+            return '历史记录';
+        case 1:
+            return '意见反馈';
+    }
+}
+
+module.exports = {
+    showTitle: showTitle
+}
