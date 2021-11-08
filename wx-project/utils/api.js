@@ -2,6 +2,7 @@ const request = function (params) {
     return new Promise((resolve, reject) => {
         wx.request({
             ...params,
+            url: 'https://m.wotao.com/service/' + params.url,
             success: (res) => {
                 resolve(res.data)
             },
@@ -15,8 +16,8 @@ const request = function (params) {
 module.exports = {
     getTestData: () => {
         return request({
-            url:'https://m.wotao.com/service/hotSearch/5',
-            method:'get'
+            url: 'hotSearch/5',
+            method: 'get'
         })
     }
 }

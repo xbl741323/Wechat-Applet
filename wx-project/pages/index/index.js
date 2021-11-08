@@ -241,6 +241,9 @@ Page({
    */
   onReachBottom: function () {
     console.log("页面上拉了！")
+    this.setData({
+      videosList:this.data.videosList.concat(this.data.videosList)
+    })
   },
 
   /**
