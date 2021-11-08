@@ -1,14 +1,12 @@
-const request = function (_method, _url, data) {
+const request = function (params) {
     return new Promise((resolve, reject) => {
         wx.request({
-            url: _url,
-            method: _method,
-            data: data,
-            success(res) {
+            ...params,
+            success: (res) => {
                 resolve(res.data)
             },
-            fail(res) {
-                reject(res)
+            fail: (err) => {
+                reject(err)
             }
         })
     })
@@ -16,6 +14,9 @@ const request = function (_method, _url, data) {
 
 module.exports = {
     getTestData: () => {
-        return request('get', 'https://m.wotao.com/service/hotSearch/5')
+        return request({
+            url:'https://m.wotao.com/service/hotSearch/5',
+            method:'get'
+        })
     }
 }
