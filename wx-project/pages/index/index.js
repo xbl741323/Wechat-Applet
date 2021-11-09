@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showTop: false,
     //被点击的首页导航的菜单的索引
     currentIndexNav: 0,
     //首页导航数据
@@ -184,9 +185,15 @@ Page({
     }]
   },
 
+  //监听回到顶部
+  onPageScroll: function (e) {
+    this.setData({
+      showTop: e.scrollTop > 500 ? true : false
+    })
+  },
+
   //点击导航首页按钮
   activeNav(e) {
-    // console.log(e)
     this.setData({
       currentIndexNav: e.currentTarget.dataset.index
     })
@@ -241,8 +248,9 @@ Page({
    */
   onReachBottom: function () {
     console.log("页面上拉了！")
+
     this.setData({
-      videosList:this.data.videosList.concat(this.data.videosList)
+      videosList: this.data.videosList.length < 32 ? this.data.videosList.concat(this.data.videosList) : this.data.videosList
     })
   },
 

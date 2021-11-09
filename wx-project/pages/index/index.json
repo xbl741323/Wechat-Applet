@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "header":"../../components/header/herder"
+    "header":"../../components/header/herder",
+    "toTop":"../../components/toTop/toTop"
   },
   "enablePullDownRefresh":true
 }

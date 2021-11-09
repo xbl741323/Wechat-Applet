@@ -1,0 +1,5 @@
+<!--components/toTop/toTop.wxml-->
+
+<view class="to-top" bindtap="toTop">
+    <image class="top-img" src="/image/toTop.png"></image>
+</view>

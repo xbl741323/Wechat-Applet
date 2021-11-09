@@ -1,7 +1,7 @@
 /**index.wxss**/
 page {
   color: #666;
-  background: rgb(233, 233, 232);
+  background: rgb(245, 245, 241);
 }
 
 /* 首页导航 */
@@ -113,4 +113,12 @@ page {
 }
 .video_title .video_title_content{
  text-align: left;
+}
+.to-footer{
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f8759d;
+  padding: 0 0 10rpx 0;
 }

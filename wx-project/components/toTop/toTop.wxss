@@ -1,0 +1,21 @@
+/* components/toTop/toTop.wxss */
+.to-top{
+    position: fixed;
+    right: 20rpx;
+    top: 800rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    background: #ffffff;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-img{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    padding: 10rpx 10rpx 0 10rpx;
+}
