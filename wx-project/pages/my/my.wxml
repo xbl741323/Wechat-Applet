@@ -3,13 +3,13 @@
 <view class="my">
     <block wx:if="{{hasUserInfo}}">
         <view class="my_login_content">
-            <image class="my_head" src="{{userInfo.avatarUrl}}"></image>
+            <image bindtap="changeImage" class="my_head" src="{{ avatarUrl }}"></image>
             <view class="my_head_name">{{userInfo.nickName}}</view>
         </view>
     </block>
     <block wx:else>
         <view class="my_login_content" bindtap="getUserData">
-            <image class="my_head" src="../../image/unlogin_head.png"></image>
+            <image class="my_head" src="../../image/unlogin_head.png" mode="scaleToFill"></image>
             <view class="my_head_btn">B站登录</view>
         </view>
     </block>

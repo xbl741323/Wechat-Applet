@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    avatarUrl:"",
     danmuList:[
       {
         text:'甘雨yyds',
@@ -134,6 +135,11 @@ Page({
     if (wx.getStorageSync('userInfo')) {
       this.setData({
         userInfo: wx.getStorageSync('userInfo')
+      })
+    }
+    if (wx.getStorageSync('avatarUrl')) {
+      this.setData({
+        avatarUrl: wx.getStorageSync('avatarUrl')
       })
     }
   },

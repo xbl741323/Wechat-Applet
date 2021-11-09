@@ -1,9 +1,10 @@
 // pages/my/my.js
 import { formatTime } from '../../utils/util'
-import { getTestData  } from '../../utils/api'
+import { getTestData } from '../../utils/api'
 Page({
     data: {
         userInfo: {},
+        avatarUrl:"",
         hasUserInfo: false,
     },
     layOut() {
@@ -28,23 +29,38 @@ Page({
                 })
                 this.setData({
                     userInfo: res.userInfo,
-                    hasUserInfo: true
+                    hasUserInfo: true,
+                    avatarUrl:res.userInfo.avatarUrl
                 })
                 wx.setStorageSync('userInfo', res.userInfo)
+                wx.setStorageSync('avatarUrl', res.userInfo.avatarUrl)
+            }
+        })
+    },
+    changeImage() {
+        var _this = this;
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success(res) {
+                // tempFilePath可以作为img标签的src属性显示图片
+                const tempFilePaths = res.tempFilePaths
+                console.log(res)
+                _this.setData({
+                    avatarUrl:tempFilePaths[0]
+                })
+                wx.setStorageSync('avatarUrl', tempFilePaths[0])
+                wx.showToast({
+                  title: '修改成功！',
+                })
             }
         })
     },
     getData() {
-        getTestData().then((res)=>{
+        getTestData().then((res) => {
             console.log(res)
         })
-        // wx.request({
-        //     url: 'https://m.wotao.com/service/hotSearch/5',
-        //     method: 'get',
-        //     success: (res) => {
-        //         console.log(res.data)
-        //     }
-        // })
     },
     onLoad() {
         this.getData()
@@ -55,6 +71,11 @@ Page({
             this.setData({
                 userInfo: wx.getStorageSync('userInfo'),
                 hasUserInfo: true
+            })
+        }
+        if (wx.getStorageSync('avatarUrl')) {
+            this.setData({
+                avatarUrl: wx.getStorageSync('avatarUrl')
             })
         }
     }

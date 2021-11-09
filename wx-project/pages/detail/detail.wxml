@@ -4,8 +4,7 @@
     <!-- 视频详情 -->
     <view class="video_info">
         <!-- 视频标签 -->
-        <video src="https://static-tst.wotao.com/icon/head/a7b63ef97fbb494facf2f065fb415013.mp4" controls="true" danmu-btn="true"
-        show-screen-lock-button="true" enable-danmu="true" autoplay="true" enable-auto-rotation="true"  vslide-gesture-in-fullscreen="true" danmu-list="{{danmuList}}" title="甘雨pv" page-page-gesture="true" show-snapshot-button="true" enable-play-gesture="true"></video>
+        <video src="https://static-tst.wotao.com/icon/head/a7b63ef97fbb494facf2f065fb415013.mp4" controls="true" danmu-btn="true" show-screen-lock-button="true" enable-danmu="true" autoplay="true" enable-auto-rotation="true" vslide-gesture-in-fullscreen="true" danmu-list="{{danmuList}}" title="甘雨pv" page-page-gesture="true" show-snapshot-button="true" enable-play-gesture="true"></video>
 
 
         <!-- 视频简介与评论 -->
@@ -16,10 +15,10 @@
         </view>
 
         <!-- up主相关信息 -->
-        <view class="video_auther" wx:if="{{userInfo.avatarUrl}}">
+        <view class="video_auther" wx:if="{{ userInfo.avatarUrl }}">
             <view class="left">
                 <view class="img">
-                    <image src="{{ userInfo.avatarUrl }}"></image>
+                    <image src="{{ avatarUrl }}"></image>
                 </view>
                 <view class="desc">
                     <view class="name">{{ userInfo.nickName }}</view>
