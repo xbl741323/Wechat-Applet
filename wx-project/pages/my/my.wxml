@@ -3,7 +3,7 @@
 <view class="my">
     <block wx:if="{{hasUserInfo}}">
         <view class="my_login_content">
-            <image bindtap="changeImage" class="my_head" src="{{ avatarUrl }}"></image>
+            <image class="my_head" src="{{ avatarUrl }}"></image>
             <view class="my_head_name">{{userInfo.nickName}}</view>
         </view>
     </block>
@@ -13,17 +13,11 @@
             <view class="my_head_btn">B站登录</view>
         </view>
     </block>
-    <view class="my_option">
+    <view class="my_option" wx:for="{{tools.showTitle()}}" wx:key="item" data-url="{{item.url}}" bindtap="toSkip">
         <view class="my_option_title">
-            {{tools.showTitle(0)}}
+            {{ item.title }}
         </view>
         <view class="my_option_point"></view>
     </view>
-    <view class="my_option">
-        <view class="my_option_title">
-            {{tools.showTitle(1)}}
-        </view>
-        <view class="my_option_point"></view>
-    </view>
-    <view wx:if="{{hasUserInfo}}" class="my_layout" bindtap="layOut">退出登录</view>
+    <view wx:if="{{ hasUserInfo }}" class="my_layout" bindtap="layOut">退出登录</view>
 </view>

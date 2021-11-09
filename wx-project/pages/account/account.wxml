@@ -1,0 +1,13 @@
+<!--pages/account/account.wxml-->
+<view class="account">
+    <view class="account-item {{index == 0?'account-item-active':''}}" wx:for="{{accountList}}" wx:key="index">
+        <view class="account-item-label">
+            <text>{{item.title}}</text>
+        </view>
+        <view class="account-item-value">
+            <image bindtap="changeImage" class="account-avator" wx:if="{{index == 0}}" src="{{item.value}}"></image>
+            <text wx:else>{{item.value}}</text>
+            <text class="right-pointer"></text>
+        </view>
+    </view>
+</view>

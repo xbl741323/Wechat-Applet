@@ -8,6 +8,7 @@
     padding: 6rpx 26rpx;
     border-radius: 10rpx;
     font-size: 25rpx;
+    color: rgb(95, 93, 93);
 }
 
 .nav {
@@ -16,6 +17,6 @@
 }
 
 .active {
-    background: rgb(231, 236, 231);
-    color: rgb(247, 125, 125);
+    color: #fff;
+    background: rgb(247, 125, 151);
 }

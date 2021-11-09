@@ -4,8 +4,16 @@ import { getTestData } from '../../utils/api'
 Page({
     data: {
         userInfo: {},
-        avatarUrl:"",
+        avatarUrl: "",
         hasUserInfo: false,
+    },
+    toSkip(e) {
+        let url = e.currentTarget.dataset.url
+        if (url !== ""&&this.data.hasUserInfo) {
+            wx.navigateTo({
+                url: e.currentTarget.dataset.url,
+            })
+        }
     },
     layOut() {
         wx.showToast({
@@ -30,40 +38,14 @@ Page({
                 this.setData({
                     userInfo: res.userInfo,
                     hasUserInfo: true,
-                    avatarUrl:res.userInfo.avatarUrl
+                    avatarUrl: res.userInfo.avatarUrl
                 })
                 wx.setStorageSync('userInfo', res.userInfo)
                 wx.setStorageSync('avatarUrl', res.userInfo.avatarUrl)
             }
         })
     },
-    changeImage() {
-        var _this = this;
-        wx.chooseImage({
-            count: 1,
-            sizeType: ['original', 'compressed'],
-            sourceType: ['album', 'camera'],
-            success(res) {
-                // tempFilePath可以作为img标签的src属性显示图片
-                const tempFilePaths = res.tempFilePaths
-                console.log(res)
-                _this.setData({
-                    avatarUrl:tempFilePaths[0]
-                })
-                wx.setStorageSync('avatarUrl', tempFilePaths[0])
-                wx.showToast({
-                  title: '修改成功！',
-                })
-            }
-        })
-    },
     getData() {
-        getTestData().then((res) => {
-            console.log(res)
-        })
-    },
-    onLoad() {
-        this.getData()
         console.log('初始化中')
         console.log(formatTime())
         console.log(wx.getStorageSync('userInfo'))
@@ -78,5 +60,62 @@ Page({
                 avatarUrl: wx.getStorageSync('avatarUrl')
             })
         }
+        getTestData().then((res) => {
+            console.log(res)
+        })
+    },
+    /**
+    * 生命周期函数--监听页面加载
+    */
+    onLoad() {
+        this.getData()
+    },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.getData()
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
     }
 })

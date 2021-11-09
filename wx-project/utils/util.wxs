@@ -1,10 +1,14 @@
-function showTitle(type) {
-    switch (type) {
-        case 0:
-            return '历史记录';
-        case 1:
-            return '意见反馈';
-    }
+function showTitle() {
+    return [{
+        title: "账户设置",
+        url: "/pages/account/account"
+    }, {
+        title: "操作记录",
+        url: ""
+    }, {
+        title: "意见反馈",
+        url: ""
+    }]
 }
 
 module.exports = {

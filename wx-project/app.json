@@ -4,7 +4,8 @@
         "pages/my/my",
         "pages/partition/partition",
         "pages/detail/detail",
-        "pages/partDetail/detail"
+        "pages/partDetail/detail",
+        "pages/account/account"
     ],
     "tabBar": {
         "custom": false,

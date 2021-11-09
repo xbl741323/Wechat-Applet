@@ -32,16 +32,16 @@ Component({
     lifetimes: {
         attached: function () {
             console.log("组件实例进入页面节点！")
-            this.timer = setInterval(() => {
-                if (this.data.count === 0) {
-                    this.triggerEvent("remove-child")
-                    return;
-                }
-                this.setData({
-                    count: this.data.count - 1
-                })
-                console.log(this.data.count)
-            }, 1000)
+            // this.timer = setInterval(() => {
+            //     if (this.data.count === 0) {
+            //         this.triggerEvent("remove-child")
+            //         return;
+            //     }
+            //     this.setData({
+            //         count: this.data.count - 1
+            //     })
+            //     console.log(this.data.count)
+            // }, 1000)
         },
         detached: function () {
             console.log("组件实例移除被页面节点移除时执行！")

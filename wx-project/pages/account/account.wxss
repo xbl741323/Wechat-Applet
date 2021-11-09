@@ -1,0 +1,52 @@
+/* pages/account/account.wxss */
+.account {
+    padding: 16rpx 0 0 0;
+    background: rgb(233, 231, 231);
+    color: rgb(105, 105, 105);
+}
+
+.account-item {
+    background: #fff;
+    width: 100%;
+    height: 100rpx;
+    margin-bottom: 2rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10rpx;
+}
+
+.account-item-label {
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+
+.account-item-active {
+    height: 120rpx !important;
+}
+
+.account-avator {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 160rpx;
+}
+
+.account-item-value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20rpx;
+    font-size: 28rpx;
+}
+
+.right-pointer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16rpx;
+    height: 16rpx;
+    margin-left: 12rpx;
+    border-right: 2rpx solid rgb(105, 105, 105);
+    border-top: 2rpx solid rgb(105, 105, 105);
+    transform: rotate(45deg);
+}
