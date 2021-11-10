@@ -1,6 +1,6 @@
 <!--components/imgItem/imgItem.wxml-->
 <view class="img-item">
-    <view class="img-item-left">
+    <view class="img-item-left" bindtap="previewImg" data-url="{{imgInfo.imgUrl}}">
         <image class="item-left-img" src="{{imgInfo.imgUrl}}"></image>
     </view>
     <view class="img-item-right">

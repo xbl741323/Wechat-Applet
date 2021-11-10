@@ -7,7 +7,7 @@
     <!-- 首页导航 -->
     <view class="nav_wrap">
         <!-- 自己滚动区域的组件 -->
-        <scroll-view class="nav" scroll-x>
+        <scroll-view class="nav" scroll-x show-scrollbar="{{false}}" enhanced="{{true}}">
             <view bindtap="activeNav" data-index="{{index}}" class="nav_item {{ index == currentIndexNav? 'active':'' }}" wx:for="{{navList}}" wx:key="index">
                 {{item.text}}
             </view>

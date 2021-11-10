@@ -1,7 +1,7 @@
 /**index.wxss**/
 page {
   color: #666;
-  background: rgb(245, 245, 241);
+  background: rgb(238, 234, 234);
 }
 
 /* 首页导航 */
@@ -12,12 +12,12 @@ page {
 
 .nav {
   white-space: nowrap;
-  padding: 10rpx 10rpx 0 10rpx;
+  padding: 0rpx 10rpx 0 10rpx;
 }
 
 .nav_item {
   display: inline-block;
-  padding: 20rpx 30rpx;
+  padding: 0rpx 30rpx 20rpx 30rpx;
   font-size: 25rpx;
 }
 

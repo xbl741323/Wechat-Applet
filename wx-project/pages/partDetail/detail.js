@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isCreate:true,
+        isCreate: true,
         titleList: [{
             title: "推荐"
         },
@@ -93,10 +93,10 @@ Page({
         },
         ]
     },
-    removeChild(){
+    removeChild() {
         console.log("tid")
         this.setData({
-            isCreate:false
+            isCreate: false
         })
     },
 
@@ -109,7 +109,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        console.log(JSON.parse(options.data))
+        let r = JSON.parse(options.data)
+        // 设置页面标题
+        wx.setNavigationBarTitle({
+            title: r.title,
+        })
     },
 
     /**

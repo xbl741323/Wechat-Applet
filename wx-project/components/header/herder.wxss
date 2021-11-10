@@ -1,9 +1,14 @@
 /* components/header/herder.wxss */
 .header {
     display: flex;
+    position: sticky;
     align-items: center;
     justify-content: center;
     background: #fff;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    padding-bottom: 20rpx;
 }
 
 .logo {
