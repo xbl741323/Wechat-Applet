@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "follow-records":"/personal/components/seas-region/follow-records/follow-records"
+  }
+}

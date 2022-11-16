@@ -1,0 +1,322 @@
+<wxs src="/utils/clue/clue.wxs" module="tools"></wxs>
+<view class="clue-info">
+  <!-- 基本信息 -->
+  <view class="clue-info-card">
+    <view class="clue-info-title">线索信息</view>
+    <view class="clue-info-item">
+      <text>创建人</text>
+      <text>{{clueInfo.createByName}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>线索类型</text>
+      <text>{{tools.clueType(clueType)}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>线索标签</text>
+      <text>{{transInfo.clueLebel}}</text>
+    </view>
+  </view>
+  <!-- 单位基础信息 -->
+  <view class="clue-info-card" wx:if="{{clueType == 2}}">
+    <view class="clue-info-title">单位基础信息</view>
+    <view class="clue-info-item">
+      <text>信用代码</text>
+      <text>{{clueInfo.organization}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>单位类型</text>
+      <text>{{transInfo.orgType}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>行业类型</text>
+      <text>{{transInfo.industry}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>所在地区</text>
+      <text>{{transInfo.area}}</text>
+    </view>
+    <view class="clue-info-column">
+      <text>详细地址</text>
+      <view wx:if="{{clueInfo.detailAddress!=null}}">{{clueInfo.detailAddress}}</view>
+      <view wx:else>暂无数据</view>
+    </view>
+  </view>
+  <!-- 个人基础信息 -->
+  <view class="clue-info-card" wx:if="{{clueType == 1}}">
+    <view class="clue-info-title">个人基础信息</view>
+    <view class="clue-info-item">
+      <text>客户名称</text>
+      <text>{{clueInfo.contactName}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>职位</text>
+      <text wx:if="{{clueInfo.jobName!=null&&clueInfo.jobName!=''}}">{{clueInfo.jobName}}</text>
+      <text wx:else>暂无数据</text>
+    </view>
+    <view class="clue-info-item">
+      <text>手机号</text>
+      <view class="contact-phone">
+        <text>{{clueInfo.mobile}}</text>
+        <text class="certify-sty" wx:if="{{clueInfo.isAutoConversion}}">已授权</text>
+        <image bindtap="phoneCall" data-phone="{{clueInfo.mobile}}" class="phone-icon" src="/personal/image/my-clue/icon_phone@2x.png"></image>
+      </view>
+    </view>
+    <view class="clue-info-item">
+      <text>身份证号</text>
+      <text>{{tools.filterNull(clueInfo.idCard)}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>单位名称</text>
+      <text>{{transInfo.companyName||'暂无数据'}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>单位类型</text>
+      <text>{{transInfo.orgType}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>行业类型</text>
+      <text>{{transInfo.industry}}</text>
+    </view>
+    <view class="clue-info-item">
+      <text>所在地区</text>
+      <text>{{transInfo.area}}</text>
+    </view>
+    <view class="clue-info-column">
+      <text>详细地址</text>
+      <text wx:if="{{clueInfo.detailAddress!=null}}">{{clueInfo.detailAddress}}</text>
+      <text wx:else>暂无数据</text>
+    </view>
+  </view>
+  <block wx:if="{{clueType == 2}}">
+    <!-- 联系人信息 -->
+    <view class="clue-info-card">
+      <view class="clue-info-title">联系人信息</view>
+      <view class="clue-info-contact" wx:for="{{clueInfo.clueCompanyContactList}}" wx:key="index">
+        <view class="contact-head">
+          <view class="contact-name">
+            <text>联系人{{index+1}}</text>
+            <text>{{item.contactName}}</text>
+          </view>
+          <view class="contact-phone">
+            <text>手机号</text>
+            <text>{{item.mobile}}</text>
+            <text class="certify-sty" wx:if="{{item.authStatus == 2 }}">已授权</text>
+            <image bindtap="phoneCall" data-phone="{{item.mobile}}" class="phone-icon" src="/personal/image/my-clue/icon_phone@2x.png"></image>
+          </view>
+        </view>
+        <view class="contact-job">
+          <text>职位</text>
+          <text>{{item.jobName}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 知识产权 -->
+    <view class="clue-info-card">
+      <view class="clue-info-title">知识产权</view>
+      <view class="clue-info-item">
+        <text>发明专利数</text>
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.inventionNum)}}</text>
+      </view>
+      <view class="clue-info-item">
+        <text>商标数量</text>
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.trademarkNum)}}</text>
+      </view>
+      <view class="clue-info-item">
+        <text>实用专利数</text>
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.practicalNum)}}</text>
+      </view>
+      <view class="clue-info-item">
+        <text>版权数量</text>
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.copyrightNum)}}</text>
+      </view>
+      <view class="clue-info-item">
+        <text>外观专利数</text>
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.appearanceNum)}}</text>
+      </view>
+      <view class="clue-info-item">
+        <text>其他知产数</text>
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.otherNum)}}</text>
+      </view>
+    </view>
+    <!-- 主要业务描述 -->
+    <view class="clue-info-card">
+      <view class="clue-info-title">财务及人员情况</view>
+      <view class="clue-info-unit">
+        <view class="unit-head">
+          <text>上年销售总额</text>
+          <text>{{tools.filterNull(transInfo.lastYearSale)}}</text>
+        </view>
+        <view class="unit-footer">
+          <text>{{tools.filterNull(clueInfo.clueCompanyUnit.lastYearSaleAmount)}}</text>
+          <text>万元</text>
+        </view>
+      </view>
+      <view class="clue-info-unit">
+        <view class="unit-head">
+          <text>上年资产总计</text>
+          <text>{{tools.filterNull(transInfo.lastYearAssets)}}</text>
+        </view>
+        <view class="unit-footer">
+          <text>{{tools.filterNull(clueInfo.clueCompanyUnit.lastYearAssetsAmount)}}</text>
+          <text>万元</text>
+        </view>
+      </view>
+      <view class="clue-info-unit">
+        <view class="unit-head">
+          <text>上年利润总额</text>
+          <text>{{tools.filterNull(transInfo.lastYearProfit)}}</text>
+        </view>
+        <view class="unit-footer">
+          <text>{{tools.filterNull(clueInfo.clueCompanyUnit.lastYearProfitAmount)}}</text>
+          <text>万元</text>
+        </view>
+      </view>
+      <view class="clue-info-unit">
+        <view class="unit-head">
+          <text>上年研发总额</text>
+          <text>{{tools.filterNull(transInfo.lastYearDevExpenses)}}</text>
+        </view>
+        <view class="unit-footer">
+          <text>{{tools.filterNull(clueInfo.clueCompanyUnit.lastYearDevExpensesAmount)}}</text>
+          <text>万元</text>
+        </view>
+      </view>
+      <view class="clue-info-unit">
+        <view class="unit-head">
+          <text>单位人数</text>
+          <text>{{tools.filterNull(transInfo.unitEmployees)}}</text>
+        </view>
+        <view class="unit-footer">
+          <text>{{tools.filterNull(clueInfo.clueCompanyUnit.unitEmployeesNum)}}</text>
+          <text>万元</text>
+        </view>
+      </view>
+    </view>
+    <!-- 主要业务描述 -->
+    <view class="clue-info-card">
+      <view class="clue-info-title">主要业务描述</view>
+      <view class="clue-info-item">
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.mainBusiness)}}</text>
+      </view>
+    </view>
+    <!-- 项目规划描述 -->
+    <view class="clue-info-card">
+      <view class="clue-info-title">项目规划描述</view>
+      <view class="clue-info-item">
+        <text>{{tools.filterNull(clueInfo.clueCompanyUnit.nextPlanning)}}</text>
+      </view>
+    </view>
+    <!-- 人员信息 -->
+    <view class="clue-info-card">
+      <view class="clue-info-title">人员信息</view>
+      <view class="clue-info-man">
+        <view class="clue-man-name">
+          <text>法人姓名</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.legalName)}}</text>
+        </view>
+        <view class="clue-man-phone">
+          <text>手机号</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.legalMobile)}}</text>
+        </view>
+      </view>
+      <view class="clue-info-man">
+        <view class="clue-man-name">
+          <text>营销主管</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.marketingName)}}</text>
+        </view>
+        <view class="clue-man-phone">
+          <text>手机号</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.marketingMobile)}}</text>
+        </view>
+      </view>
+      <view class="clue-info-man">
+        <view class="clue-man-name">
+          <text>财务主管</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.treasurerName)}}</text>
+        </view>
+        <view class="clue-man-phone">
+          <text>手机号</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.treasurerMobile)}}</text>
+        </view>
+      </view>
+      <view class="clue-info-man">
+        <view class="clue-man-name">
+          <text>技术主管</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.technicalName)}}</text>
+        </view>
+        <view class="clue-man-phone">
+          <text>手机号</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.technicalMobile)}}</text>
+        </view>
+      </view>
+      <view class="clue-info-man">
+        <view class="clue-man-name">
+          <text>行政主管</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.administrativeName)}}</text>
+        </view>
+        <view class="clue-man-phone">
+          <text>手机号</text>
+          <text>{{tools.filterNull(clueInfo.clueCompanyStaff.administrativeMobile)}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 开票信息 单位/个人 -->
+  <view class="clue-info-card">
+    <view class="clue-info-title">开票信息</view>
+    <view class="clue-info-item">
+      <text class="fix-title-sty">单位名称</text>
+      <block wx:if="{{clueInfo.clueCompanyInvoice}}">
+        <text>{{tools.filterNull(clueInfo.companyName)}}</text>
+      </block>
+      <block wx:if="{{clueInfo.cluePersonInvoice}}">
+        <text>{{tools.filterNull(clueInfo.cluePersonInvoice.companyName)}}</text>
+      </block>
+    </view>
+    <view class="clue-info-item">
+      <text>发票税号</text>
+      <block wx:if="{{clueInfo.clueCompanyInvoice}}">
+        <text>{{tools.filterNull(clueInfo.organization)}}</text>
+      </block>
+      <block wx:if="{{clueInfo.cluePersonInvoice}}">
+        <text>{{tools.filterNull(clueInfo.cluePersonInvoice.organization)}}</text>
+      </block>
+    </view>
+    <view class="clue-info-item">
+      <text class="fix-title-sty">注册地址</text>
+      <block wx:if="{{clueInfo.clueCompanyInvoice}}">
+        <text>{{tools.filterNull(clueInfo.clueCompanyInvoice.registerAddress)}}</text>
+      </block>
+      <block wx:if="{{clueInfo.cluePersonInvoice}}">
+        <text>{{tools.filterNull(clueInfo.cluePersonInvoice.registerAddress)}}</text>
+      </block>
+    </view>
+    <view class="clue-info-item">
+      <text>注册电话</text>
+      <block wx:if="{{clueInfo.clueCompanyInvoice}}">
+        <text>{{tools.filterNull(clueInfo.clueCompanyInvoice.registerMobile)}}</text>
+      </block>
+      <block wx:if="{{clueInfo.cluePersonInvoice}}">
+        <text>{{tools.filterNull(clueInfo.cluePersonInvoice.registerMobile)}}</text>
+      </block>
+    </view>
+    <view class="clue-info-item">
+      <text>开户银行</text>
+      <block wx:if="{{clueInfo.clueCompanyInvoice}}">
+        <text>{{tools.filterNull(clueInfo.clueCompanyInvoice.bankName)}}</text>
+      </block>
+      <block wx:if="{{clueInfo.cluePersonInvoice}}">
+        <text>{{tools.filterNull(clueInfo.cluePersonInvoice.bankName)}}</text>
+      </block>
+    </view>
+    <view class="clue-info-item">
+      <text>银行账号</text>
+      <block wx:if="{{clueInfo.clueCompanyInvoice}}">
+        <text>{{tools.filterNull(clueInfo.clueCompanyInvoice.bankAccount)}}</text>
+      </block>
+      <block wx:if="{{clueInfo.cluePersonInvoice}}">
+        <text>{{tools.filterNull(clueInfo.cluePersonInvoice.bankAccount)}}</text>
+      </block>
+    </view>
+  </view>
+</view>

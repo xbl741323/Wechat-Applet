@@ -1,0 +1,116 @@
+<!--personal/components/my-order/product-item/product-item.wxml-->
+<wxs src="/utils/order/order.wxs" module="orders"></wxs>
+<view class="product-item">
+  <!-- 订单编号—状态 -->
+  <view class="product-head">
+    <view class="head-left">
+      <text>{{orderInfo.orderNo}}</text>
+      <image catchtap="copyText" data-text="{{orderInfo.orderNo}}" class="common-img-sty" src="/personal/image/my-clue/icon_duplicate@2x.png"></image>
+    </view>
+    <view class="head-right">
+      <text></text>
+      <text>{{orders.filterOrderStatus(orderInfo.orderStatus)}}</text>
+    </view>
+  </view>
+  <view bindtap="toOrderDetail">
+    <!-- 产品名称—数量 -->
+    <view class="product-name">
+      <text class="{{disabled==true?'disabled-sty':''}}">{{orderInfo.spuName}}</text>
+      <text>x{{orderInfo.buyNum}}</text>
+    </view>
+    <!-- 规格属性 -->
+    <view class="product-attribute {{disabled==true?'disabled-sty':''}}">
+      <text class="{{disabled==true?'disabled-sty disabled-bg-sty':''}}">{{orderInfo.spec}}</text>
+    </view>
+    <!-- 客户名称 -->
+    <view class="common-contain {{disabled==true?'disabled-sty':''}}" wx:if="{{orderInfo.subjectName!=null}}">
+      <text>客户名称：</text>
+      <text>{{orderInfo.subjectName}}</text>
+    </view>
+    <!-- 线索编号 -->
+    <view wx:if="{{pageFrom == 3}}" class="common-contain {{disabled==true?'disabled-sty':''}}">
+      <text>线索编号：</text>
+      <text>{{orderInfo.clueNo}}</text>
+    </view>
+    <!-- 尾款状态 -->
+    <view wx:if="{{pageFrom == 0}}" class="common-contain {{disabled==true?'disabled-sty':''}}">
+      <text>尾款状态：</text>
+      <text class="tail-sty">{{orders.filterTailStatus(orderInfo.tailStatus)}}</text>
+    </view>
+    <block wx:if="{{pageFrom == 0 && orderType == 0&&orderInfo.changePriceStatus!=null}}">
+      <!-- 改价状态 -->
+      <view class="common-contain {{disabled==true?'disabled-sty':''}}">
+        <text>改价状态：</text>
+        <text class="tail-sty">{{orders.filterChangePriceStatus(orderInfo.changePriceStatus)}}</text>
+      </view>
+      <!-- 审核未通过原因 -->
+      <view class="fail-audit" wx:if="{{(orderInfo.changePriceStatus == 3)&&(orderInfo.handleMessage!='')&&(orderInfo.handleMessage!=null)}}">
+        {{orderInfo.handleMessage}}
+      </view>
+    </block>
+
+    <!-- 详情页独有 -->
+    <block wx:if="{{pageFrom == 4}}">
+      <!-- 线索归属 -->
+      <view class="common-contain {{disabled==true?'disabled-sty':''}}">
+        <text>线索归属：</text>
+        <text>{{orderInfo.clueAttributionEmpName}}</text>
+      </view>
+      <!-- 订单归属 -->
+      <view class="common-contain {{disabled==true?'disabled-sty':''}}">
+        <text>订单归属：</text>
+        <text>{{orderInfo.belongName}}</text>
+      </view>
+      <!-- 发起方式 -->
+      <view wx:if="{{orderInfo.orderStatus == -1||orderInfo.orderStatus == -2||orderInfo.orderStatus == -3}}" class="common-contain {{disabled==true?'disabled-sty':''}}">
+        <text>发起方式：</text>
+        <text>{{orders.filterOrderSource(orderInfo.orderSource)}}</text>
+      </view>
+      <!-- 业务员 -->
+      <view class="common-contain {{disabled==true?'disabled-sty':''}}">
+        <text>业务员：</text>
+        <text>{{orderInfo.clueSalesmanEmpName}}</text>
+      </view>
+    </block>
+
+    <!-- 订单时间显示 -->
+    <view class="common-contain {{disabled==true?'disabled-sty':''}}">
+      <block wx:if="{{(pageFrom == 4)&&(orderInfo.orderStatus != -1&&orderInfo.orderStatus != -2&&orderInfo.orderStatus != -3)}}">
+        <text>签约时间：</text>
+        <text>{{orderInfo.contractTime||'-'}}</text>
+      </block>
+      <block wx:if="{{pageFrom == 3}}">
+        <text>创建时间：</text>
+        <text>{{orderInfo.createTime}}</text>
+      </block>
+      <block wx:if="{{pageFrom == 0}}">
+        <text>订单时间：</text>
+        <text>{{orderInfo.orderTime}}</text>
+      </block>
+    </view>
+  </view>
+  <!-- 按钮区域 -->
+  <view class="btn-contain">
+    <view class="btn-left">
+      <text>总价：</text>
+      <text wx:if="{{orderInfo.tailStatus == 0}}">待定</text>
+      <text wx:else class="{{disabled==true?'disabled-price-sty':''}}">￥{{orders.fixPrice(orderInfo.totalAmount)}}</text>
+    </view>
+    <view class="btn-right" wx:if="{{pageFrom == 0}}">
+      <text catchtap="toModifyOrder" wx:if="{{(orderInfo.orderStatus == 0||orderInfo.tailStatus == 0||orderInfo.tailStatus == 1)&&(orderInfo.changePriceStatus != 1)}}">改价</text>
+      <text catchtap="toOrderDetail">查看</text>
+    </view>
+    <view class="btn-right" wx:if="{{pageFrom == 3||pageFrom == 4}}">
+      <block wx:if="{{(pageFrom == 4)&&(orderType==0)}}">
+        <text catchtap="toModifyOrder" wx:if="{{(orderInfo.orderStatus == 0||orderInfo.tailStatus == 0||orderInfo.tailStatus == 1)&&(orderInfo.changePriceStatus != 1)}}">改价</text>
+      </block>
+      <text catchtap="checkContract" wx:if="{{orderInfo.orderStatus == 2}}">查看合同</text>
+      <text catchtap="validateAudit" wx:if="{{orderInfo.orderStatus == -2}}">发起订单</text>
+      <text catchtap="handleConfirm" data-type="0" wx:if="{{orderInfo.orderStatus == -2||orderInfo.orderStatus == -3||orderInfo.orderStatus == -5}}">删除</text>
+      <text catchtap="toEditOrder" wx:if="{{orderInfo.orderStatus == -2||orderInfo.orderStatus == -5}}">修改</text>
+      <text catchtap="handleConfirm" data-type="1" wx:if="{{orderInfo.orderStatus == -1}}">关闭</text>
+      <text catchtap="toShowCode" wx:if="{{orderInfo.orderStatus == -1}}">链接</text>
+      <text catchtap="toOrderDetail" wx:if="{{pageFrom != 4}}">查看</text>
+    </view>
+  </view>
+</view>

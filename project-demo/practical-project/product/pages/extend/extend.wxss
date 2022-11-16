@@ -1,0 +1,246 @@
+/* product/pages/extend/extend.wxss */
+/*
+  生成码区域
+*/
+page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.extend_box {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.generate-code {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 20rpx 20rpx 0 0;
+  background-color: #fff;
+  font-size: 28rpx;
+  overflow-x: hidden;
+}
+
+/*
+  链接区域
+*/
+.link-contain {
+  width: 100%;
+  margin-top: 5rpx;
+}
+
+.link-desc {
+  width: 648rpx;
+  background: #EEF1F2;
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  border-radius: 15rpx;
+  margin: 5rpx 0 0 15rpx;
+}
+
+.link-desc>text {
+  margin-bottom: 6rpx;
+}
+
+.link-desc>text:nth-of-type(3) {
+  color: #0082FC;
+}
+
+/*
+  生成推广码区域
+*/
+.code-contain {
+  width: 702rpx;
+  height: 968rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 28rpx;
+}
+
+.code-contain>text {
+  margin-top: 24rpx;
+}
+
+.share-bg {
+  width: 100%;
+  height: 100% !important;
+  position: absolute;
+  left: 25rpx;
+}
+
+.canvans-sty {
+  width: 420rpx;
+  height: 420rpx;
+  position: absolute;
+  bottom: 10000rpx;
+  background-color: #ffffff;
+}
+
+.share-img-sty {
+  width: 200rpx !important;
+  height: 200rpx !important;
+  position: absolute;
+  bottom: 175rpx;
+  right: 20rpx;
+}
+
+.cover-img {
+  position: absolute;
+  top: 120rpx;
+  left: 65rpx;
+  width: 614rpx;
+  height: 434rpx;
+  z-index: 1;
+  border-radius: 10rpx;
+}
+
+.share-text {
+  display: inline-block !important;
+  width: 100% !important;
+  text-align: center;
+  font-size: 25rpx;
+  color: #B4B4B4;
+  position: absolute;
+  bottom: 145rpx;
+  right: 20rpx;
+  width: 220rpx !important;
+}
+
+.android-sty {
+  bottom: 135rpx !important;
+  right: 12rpx !important;
+}
+
+.share-text-box {
+  width: 350rpx;
+  height: 230rpx;
+  position: absolute;
+  bottom: 142rpx;
+  left: 80rpx;
+}
+
+.share-title {
+  color: #333333;
+  font-weight: bold;
+  font-size: 26rpx;
+}
+
+.price-text {
+  display: flex;
+  margin-top: 15rpx;
+}
+
+.price-name {
+  flex: 1;
+  color: #555555;
+  font-size: 24rpx;
+}
+
+.price-num-box {
+  display: flex;
+  margin-top: 5rpx;
+}
+
+.price-num {
+  flex: 1;
+  color: #FA7A42;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+/*
+  分享按钮区域
+*/
+.share-contain {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48rpx;
+}
+
+.share-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-sty {
+  width: 100%;
+  padding-top: 26rpx;
+  background-color: #fff;
+}
+
+.pop-sty {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.draw-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  font-size: 24rpx;
+  padding-top: 16rpx;
+}
+
+.draw-logo {
+  width: 72rpx;
+  height: 72rpx;
+  margin-bottom: 16rpx;
+}
+
+.text-sty {
+  flex-flow: column wrap;
+  margin-left: -14rpx;
+  font-size: 25rpx;
+}
+
+.cancel-btn {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  font-size: 28rpx;
+  background: #F5F7FB;
+  margin-top: 20rpx;
+}
+
+/*
+  公共样式区域
+*/
+.common-sty {
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  padding: 20rpx;
+}
+
+.common-bold-sty {
+  font-weight: bold !important;
+  color: #333333 !important;
+}
+
+.share-sty {
+  color: #0082FC;
+}
+
+.cavan-sty {
+  width: 702rpx;
+  height: 968rpx;
+  z-index: 0 !important;
+  position: fixed;
+  bottom: -1000rpx;
+}

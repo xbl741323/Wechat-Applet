@@ -1,0 +1,103 @@
+/* personal/components/my-collection/money-item/money-item.wxss */
+
+
+.money-item {
+  margin-top: 25rpx;
+  background-color: #ffffff;
+  padding: 32rpx 24rpx;
+  border-radius: 20rpx;
+}
+
+.common-img-sty {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 16rpx;
+}
+
+.money-item-top {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 32rpx;
+  font-size: 24rpx;
+  color: #555555;
+}
+
+.money-item-num {
+  font-size: 28rpx;
+}
+
+.money-item-middle {
+  line-height: 52rpx;
+  font-size: 28rpx;
+  color: #7B7B7B;
+}
+
+.money-item-style>view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.money-item-middle>view>text:last-child {
+  color: #555555;
+}
+
+.money-item-botton {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 34rpx;
+}
+
+.check-detail {
+  color: #0082FC;
+  font-size: 28rpx;
+}
+
+.money-item-sum {
+  font-weight: 700;
+  color: #333333;
+}
+
+.returned-money {
+  color: #FA7A42;
+}
+
+.popup-box {
+  width: 592rpx;
+  padding: 32rpx;
+  border-radius: 20px;
+  font-size: 28rpx;
+  color: #7B7B7B;
+}
+
+.popup-bottom {
+  margin: 0 auto;
+  line-height: 64rpx;
+  width: 208rpx;
+  height: 64rpx;
+  text-align: center;
+  background-color: #0F89FC;
+  color: #FFFFFF;
+  font-size: 24rpx;
+}
+
+.popup-title {
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #EAEBEF;
+  font-weight: 700;
+  color: #333333;
+}
+
+.popup-item {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32rpx;
+}
+
+.popup-item:last-child {
+  padding-bottom: 32rpx;
+}
+
+.popupImg {
+  width: 500rpx;
+  height: 500rpx;
+}

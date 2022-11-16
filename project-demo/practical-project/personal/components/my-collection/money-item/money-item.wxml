@@ -1,0 +1,130 @@
+<wxs src="/utils/order/order.wxs" module="tools"></wxs>
+<view class="money-item">
+  <view class="money-item-top">
+    <view class="money-item-num">
+      <text>{{orderInfo.receiveNo}}</text>
+      <image catchtap="copyText" data-text="{{orderInfo.receiveNo}}" class="common-img-sty" src="/personal/image/my-clue/icon_duplicate@2x.png"></image>
+    </view>
+    <view class="money-item-tiem">
+      <text>回款：{{orderInfo.receiveTime}}</text>
+    </view>
+  </view>
+  <view class="money-item-middle money-item-style" wx:if="{{clueType==2}}">
+    <view>
+      <text>订单编号：</text>
+      <text>{{orderInfo.orderNo}}</text>
+    </view>
+    <view>
+      <text>客户名称：</text>
+      <text>{{orderInfo.customerName}}</text>
+    </view>
+    <view>
+      <text>订单产品：</text>
+      <text>{{orderInfo.spuName==null ? "暂无数据" : orderInfo.spuName}}</text>
+    </view>
+    <view>
+      <text>费用类型：</text>
+      <text>{{tools.filterCostType(orderInfo.amountType)}}</text>
+    </view>
+    <view>
+      <text>支付方式：</text>
+      <text>{{tools.filterPayTypeInfo(orderInfo.payType)}}</text>
+    </view>
+    <view>
+      <text>订单归属：</text>
+      <text>{{orderInfo.orderBelongName}}</text>
+    </view>
+    <view>
+      <text>业务员：</text>
+      <text>{{orderInfo.saleBelongName}}</text>
+    </view>
+
+  </view>
+  <!-- 线下回款 -->
+  <view class="money-item-middle money-item-style" wx:else>
+    <view>
+      <text>订单编号：</text>
+      <text>{{orderInfo.receiveNo}}</text>
+    </view>
+
+    <view>
+      <text>合同编号：</text>
+      <text>{{orderInfo.contractNo==null ? "暂无数据" : orderInfo.contractNo}}</text>
+    </view>
+    <view>
+      <text>客户名称：</text>
+      <text>{{orderInfo.customerName==null ? '暂无数据' :orderInfo.customerName}}</text>
+    </view>
+    <view>
+      <text>费用类型：</text>
+      <text>{{tools.filterCostType(orderInfo.amountType)}}</text>
+    </view>
+    <view>
+      <text>回款去向：</text>
+      <text>{{orderInfo.receiveDirectionName}}</text>
+    </view>
+    <view>
+      <text>尾款金额：</text>
+      <text>{{orderInfo.tailAmount==null ? '无' :orderInfo.tailAmount}}</text>
+    </view>
+    <view>
+      <text>回款时间：</text>
+      <text>{{orderInfo.receiveTime}}</text>
+    </view>
+
+  </view>
+  <view class="money-item-botton">
+    <view class="money-item-sum">
+      <text>回款金额：</text>
+      <text class="returned-money" wx:if="{{clueType==2}}">￥{{tools.returnFloat(orderInfo.receiveAmount)}}</text>
+      <text class="returned-money" wx:else>￥{{tools.returnFloatData(orderInfo.receiveAmount)}}</text>
+    </view>
+    <view class="check-detail">
+      <text bindtap="showPopup" wx:if="{{clueType==2}}">查看</text>
+    </view>
+  </view>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" round>
+  <view class="popup-box">
+    <view class="popup-title">
+      <text>付款记录</text>
+    </view>
+    <view class="popup-content">
+      <view class="popup-item">
+        <text>付款方名称</text>
+        <text>{{orderInfo.customerName}}</text>
+      </view>
+      <view class="popup-item">
+        <text>支付方式</text>
+
+        <text>{{tools.filterPayTypeInfo(orderInfo.payType)}}</text>
+      </view>
+      <view class="popup-item">
+        <text>支付时间</text>
+        <text>{{orderInfo.receiveTime}}</text>
+      </view>
+      <block>
+        <view class="popup-item" wx:if="{{orderInfo.payType==0}}">
+          <text>支付宝流水号</text>
+          <text>{{orderInfo.payWater}}</text>
+        </view>
+        <view class="popup-item" wx:if="{{orderInfo.payType==2}}">
+          <text>微信流水号</text>
+          <text>{{orderInfo.payWater}}</text>
+        </view>
+        <view class="popup-item" wx:if="{{orderInfo.payType==1}}">
+          <text>对公转账凭证</text>
+          <text style="color: #0F89FC;" bindtap="examineImg" data-taskNo="{{orderInfo.payWater}}">查看</text>
+        </view>
+      </block>
+    </view>
+    <view class="popup-bottom" bindtap="onClose">
+      <view>确定</view>
+    </view>
+  </view>
+</van-popup>
+<van-popup show="{{ conceal }}" bind:close="Close">
+  <view class="imageUrl" wx:if="{{ImageUrl!=null}}">
+    <image src="{{baseUrl+ImageUrl}}" class="popupImg"></image>
+  </view>
+</van-popup>

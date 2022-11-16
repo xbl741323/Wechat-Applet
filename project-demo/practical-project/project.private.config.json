@@ -1,0 +1,31 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+<<<<<<< HEAD
+  "projectname": "CRMmini"
+=======
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "地区公海",
+          "pathName": "personal/pages/my-seas/seas-region/seas-region",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "发起订单",
+          "pathName": "personal/pages/my-order/generate-order/add/add",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "projectname": "CRMmini",
+  "setting": {
+    "compileHotReLoad": true
+  }
+>>>>>>> 7f3a5ece172469a69f9f238dd66c14bd6b280a39
+}

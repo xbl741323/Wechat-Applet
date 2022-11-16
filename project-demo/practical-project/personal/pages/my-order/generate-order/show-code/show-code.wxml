@@ -1,0 +1,24 @@
+<!--personal/pages/my-order/generate-order/show-code/show-code.wxml-->
+<!-- 生成推广码 -->
+<van-action-sheet bind:close="closeSheet" title="分享" show="{{ showCode }}" close-on-click-overlay="{{false}}">
+  <view class="generate-code">
+    <!-- 链接区域 -->
+    <view class="link-contain">
+      <text class="common-sty">客户使用pc端</text>
+      <view class="link-desc">
+        <text>您的订单已生成，请访问地址继续完成订单</text>
+        <text>{{webUrl}}order/order-initInfo?id={{genereteId}}</text>
+        <text>文案和地址已复制</text>
+      </view>
+    </view>
+    <!-- 二维码区域 -->
+    <text class="common-sty">客户使用小程序</text>
+    <view id="code-contain" class="code-contain">
+      <canvas class="canvans-sty" canvas-id="myQrcode"></canvas>
+      <image bindtap="wxShare" data-type="image" data-url="{{shareImgUrl}}" data-delay="1" mode="aspectFit" class="share-img-sty" src="{{shareImgUrl}}"></image>
+      <view class="share-text" data-type="text" data-text="请微信扫码完成订单">请微信扫码完成订单</view>
+      <text class="share-sty" bindtap="wxShare">点击分享</text>
+    </view>
+  </view>
+  <canvas hidden="{{showCanvas}}" class="cavan-sty" canvas-id="share"></canvas>
+</van-action-sheet>

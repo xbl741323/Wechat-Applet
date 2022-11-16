@@ -1,0 +1,32 @@
+<!--components/index/work-bench/work-bench.wxml-->
+<view class="work-bench">
+  <image class="work-bench-bg" src="{{bgUrl}}"></image>
+  <view class="emp-info">
+    <view class="emp-wel">
+      <text>Hi~</text>
+      <text wx:if="{{isLogin}}">欢迎您，{{userInfo.name}}</text>
+      <text wx:else>欢迎您，请先登录</text>
+    </view>
+    <text class="work-lang"></text>
+    <view class="my-work-bench">
+      <!-- 公共样式 -->
+      <view class="common-title-sty">
+        <text>工作台</text>
+        <text></text>
+      </view>
+      <!-- 工作台列表 -->
+      <swiper class="swiper-sty" indicator-active-color='#0082FC' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{swiprList}}" wx:key="index">
+          <swiper-item>
+            <view class="work-list">
+              <view class="work-item" wx:for="{{item.workList}}" wx:for-index="cIndex" wx:for-item="cItem" wx:key="cIndex" data-item="{{cItem}}" bindtap="skipToPage">
+                <image src="{{cItem.imgUrl}}"></image>
+                <text class="{{cItem.path==''?'gray-sty':''}}">{{cItem.title}}</text>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>

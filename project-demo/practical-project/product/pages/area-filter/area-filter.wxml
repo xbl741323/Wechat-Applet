@@ -1,0 +1,11 @@
+<!--product/pages/area-filter/area-filter.wxml-->
+<view>
+  <view class="staticCity cancle">
+    当前地区筛选项：{{staticCity}}
+  </view>
+  <view class="city">
+    <view wx:for="{{cityList}}" wx:key="index">
+      <view class="city-item" bindtap="refreshTo" data-item="{{item}}">{{item.label}}</view>
+    </view>
+  </view>
+</view>

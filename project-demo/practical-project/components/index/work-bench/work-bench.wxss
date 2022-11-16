@@ -1,0 +1,107 @@
+/* components/index/work-bench/work-bench.wxss */
+/*
+  工作台
+*/
+
+.work-bench {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-bench-bg {
+  width: 100%;
+  height: 750rpx;
+  background: lightblue;
+}
+
+.emp-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 24rpx;
+}
+
+.emp-wel {
+  display: flex;
+  flex-direction: column;
+  color: #333333;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.work-lang {
+  margin: 45rpx 0 20rpx 0;
+  display: inline-block;
+  width: 128rpx;
+  height: 4rpx;
+  background: #d9d9d9;
+}
+
+.my-work-bench {
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper-sty {
+  margin-top: 48rpx;
+  width: 700rpx;
+  height: 460rpx;
+}
+
+.work-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.work-item {
+  display: flex;
+  flex: 1;
+  width: 224rpx;
+  flex-direction: column;
+  align-items: center;
+  color: #333333;
+  font-size: 28rpx;
+  margin-bottom: 34rpx;
+}
+
+.work-item image {
+  width: 224rpx;
+  height: 128rpx;
+  margin-bottom: 10rpx;
+}
+
+.gray-sty {
+  color: #A5A5A5;
+}
+
+/*
+  公共样式区域
+*/
+
+.common-title-sty {
+  position: relative;
+  height: 42rpx;
+  display: flex;
+  align-items: flex-end;
+}
+
+.common-title-sty>text:nth-of-type(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.common-title-sty>text:nth-of-type(2) {
+  display: inline-block;
+  width: 128rpx;
+  height: 14rpx;
+  opacity: 0.5;
+  background: #b1dcff;
+}

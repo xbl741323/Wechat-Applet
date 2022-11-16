@@ -1,0 +1,29 @@
+<!--additional/pages/location/location.wxml-->
+<view class="follow-contain">
+  <view>
+    <text>当前位置：</text>
+    <text>{{defaultInfo.formatted_addresses.recommend}}</text>
+  </view>
+  <button class="btn-sty" type="primary" bindtap="chooseLocation">打卡</button>
+  <view>
+    <text>选择的位置：</text>
+    <text>{{chooseInfo.name}}</text>
+  </view>
+  <view>
+    <text>距离：</text>
+    <text>{{distance}}米</text>
+  </view>
+  <view>
+    <text>位置权限是否授权：</text>
+    <text>{{isPermission}}</text>
+  </view>
+  <button class="btn-sty" type="primary" bindtap="takePhoto">拍照打卡</button>
+  <view>
+    <text>相机权限是否授权：</text>
+    <text>{{isPhotoPermission}}</text>
+  </view>
+  <view>打卡图片：</view>
+  <view wx:if="{{imgUrl!=''}}">
+    <image class="img-sty" mode="aspectFit" src="{{imgUrl}}"></image>
+  </view>
+</view>

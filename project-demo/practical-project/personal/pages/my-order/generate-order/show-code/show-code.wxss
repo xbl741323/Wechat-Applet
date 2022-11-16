@@ -1,0 +1,122 @@
+/* personal/pages/my-order/generate-order/show-code/show-code.wxss */
+/*
+  生成码区域
+*/
+.van-action-sty {
+  z-index: 10000 !important;
+}
+
+.generate-code {
+  padding: 36rpx 24rpx 48rpx 24rpx;
+  background: #ffffff;
+  font-size: 28rpx;
+  z-index: 10000 !important;
+}
+
+.generate-code image {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+/*
+  链接区域
+*/
+.link-contain {
+  width: 100%;
+}
+
+.link-desc {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx 0;
+}
+
+.link-desc>text {
+  margin-bottom: 6rpx;
+}
+
+.link-desc>text:nth-of-type(3) {
+  color: #0082FC;
+}
+
+/*
+  生成推广码区域
+*/
+.code-contain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36rpx 0 0 30rpx;
+}
+
+.code-contain>text {
+  margin-top: 24rpx;
+}
+
+.canvans-sty {
+  width: 400rpx;
+  height: 400rpx;
+  position: absolute;
+  bottom: 10000rpx;
+}
+
+.share-img-sty {
+  width: 400rpx !important;
+  height: 400rpx !important;
+  margin: 0 auto;
+}
+
+/*
+  分享按钮区域
+*/
+.share-contain {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48rpx;
+}
+
+.share-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  公共样式区域
+*/
+.common-sty {
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+
+.common-bold-sty {
+  font-weight: bold !important;
+  color: #333333 !important;
+}
+
+.share-sty {
+  color: #0082FC;
+}
+
+.cavan-sty {
+  width: 100%;
+  height: 600rpx;
+  z-index: 0 !important;
+  position: fixed;
+  bottom: -1000rpx;
+}
+
+.share-text {
+  margin-top: 5rpx;
+  display: inline-block;
+  width: 100% !important;
+  text-align: center !important;
+}

@@ -1,0 +1,11 @@
+/* additional/pages/location/location.wxss */
+.follow-contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-sty {
+  background: #36A6FE !important;
+}

@@ -1,0 +1,34 @@
+/* personal/pages/my-order/detail/product-order/product-order.wxss */
+page {
+  background: #F5F7FB;
+}
+
+.product-order {
+  padding: 24rpx 24rpx;
+}
+
+.order-tab {
+  margin-bottom: 24rpx;
+}
+
+/* 订单信息 */
+.order-head {
+  background: #FFFFFF;
+  width: 702rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
+}
+/* 任务未生成 */
+.no-task{
+margin-top: 100rpx;
+}
+.no-task-text{
+  padding: 50rpx 24rpx 6rpx 50rpx;
+  color: #555555;
+  font-size: 30rpx;
+}
+.no-task-item{
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #0082FC;
+}

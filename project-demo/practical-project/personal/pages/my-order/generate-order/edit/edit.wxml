@@ -1,0 +1,85 @@
+<!--personal/pages/my-order/generate-order/edit/edit.wxml-->
+<wxs src="/utils/order/order.wxs" module="tools"></wxs>
+<view class="generate-order">
+  <view class="generate-head">
+    <!-- 线索名称 -->
+    <view class="order-item">
+      <view class="order-item-head">
+        <text class="required-sty"></text>
+        <text class="common-bold-sty">线索名称</text>
+      </view>
+      <view class="order-item-foot">
+        <text class="common-bold-sty" wx:if="{{clueType == 2}}">{{clueInfo.companyName}}</text>
+        <text class="common-bold-sty" wx:if="{{clueType == 1}}">{{clueInfo.contactName}}</text>
+        <text></text>
+      </view>
+    </view>
+
+    <!-- 客户签约人 -->
+    <view class="order-item">
+      <view class="order-item-head">
+        <text class="required-sty">*</text>
+        <text>客户签约人</text>
+      </view>
+      <view class="order-item-foot">
+        <block wx:if="{{clueType == 2&&signManList.length>1}}">
+          <picker bindchange="changeSignMan" range-key="contactName" range="{{signManList}}">
+            <text wx:if="{{signManInfo == null}}">请选择客户签约人</text>
+            <text wx:else>{{signManInfo.name}}</text>
+            <text class="pointer-sty"></text>
+          </picker>
+        </block>
+        <block wx:else>
+          <text wx:if="{{signManInfo == null}}">请选择客户签约人</text>
+          <text wx:else>{{signManInfo.name}}</text>
+          <text class="pointer-sty"></text>
+        </block>
+      </view>
+    </view>
+
+    <!-- 签约手机号 -->
+    <view class="order-item">
+      <view class="order-item-head">
+        <text class="required-sty"></text>
+        <text>签约手机号</text>
+      </view>
+      <view class="order-item-foot">
+        <text>{{signManInfo.mobile}}</text>
+        <text wx:if="{{phoneStatus == 2}}" class="certify-sty">{{clueType == 2?'已授权':'已认证'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 已选产品展示区域 -->
+  <view class="show-select-product">
+    <view class="select-product-list" wx:for="{{selectProduct}}" wx:key="index">
+      <view class="select-product-item" data-item="{{item}}">
+        <text>{{item.spuName}}</text>
+        <view class="select-product-foot">
+          <text wx:if="{{item.payInfo.isFinalPeding}}">待定</text>
+          <text wx:else>￥{{tools.fixPrice(item.payInfo.totalAmount)}}</text>
+        </view>
+      </view>
+      <!-- 产品信息显示 -->
+      <view>
+        <product-info id="product-info" bind:changeProInfo="changeProInfo" productInfo="{{item}}" orderRemark="{{item.payInfo.remark}}" pageForm="1"></product-info>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮区域 -->
+  <view class="order-btn">
+    <view class="order-btn-head">
+      <text>合计：</text>
+      <text wx:if="{{isFixTotalPeding}}">待定</text>
+      <text wx:else>￥{{tools.fixPrice(fixTotalAmount)}}</text>
+    </view>
+    <view class="order-btn-foot">
+      <text bindtap="saveDraft" wx:if="{{orderInfo.orderStatus!=-5}}">保存</text>
+      <text bindtap="createLink" class="{{orderInfo.orderStatus==-5?'fix-btn':''}}">发起订单</text>
+    </view>
+  </view>
+</view>
+
+<!-- 审核弹窗 -->
+<audit-tip id="audit-tip" bind:submitAudit="submitAudit"></audit-tip>

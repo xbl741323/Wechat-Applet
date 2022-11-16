@@ -1,0 +1,14 @@
+// 显示审批状态
+function processStatus(value) {
+  return value == 0 ? '待审核' : value == 1 ? '已通过' : value == 2 ? '未通过' : '';
+}
+
+// 显示订单类型状态
+function orderStatus(value) {
+  return value == 1 ? '项目申报' : value == 2 ? '知识产权' : value == 3 ? '专利' : value == 4 ? '版权' : value == 5 ? '商标' : value == 6 ? '其他' : value == 7 ? '工商注册' : value == 8 ? '财税服务' : value == 9 ? '融资上市' : value == 10 ? '法律服务' : value == 11 ? '软件开发' : '';
+}
+
+module.exports = {
+  processStatus: processStatus,
+  orderStatus: orderStatus
+}

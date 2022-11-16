@@ -1,0 +1,9 @@
+<!--pages/index/index.wxml-->
+<view class="index">
+  <!-- 工作台区域 -->
+  <work-bench userInfo="{{userInfo}}" isLogin="{{isLogin}}"></work-bench>
+  <!-- 精选推广区域 -->
+  <selected-promotion userInfo="{{userInfo}}"></selected-promotion>
+  <!-- 微信订阅弹窗 -->
+  <qrcode class="qrcode" show="{{show}}" url="{{url}}"></qrcode>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的流程",
+  "usingComponents": {
+    "transfer-item": "/personal/components/my-process/transfer-item/transfer-item",
+    "contract-item": "/personal/components/my-process/contract-item/index"
+  }
+}

@@ -1,0 +1,34 @@
+<!--personal/components/my-clue/follow-records/follow-records.wxml-->
+<view class="follow-records">
+  <view class="follow-item" wx:for="{{followList}}" wx:key="index" bindtap="toFollow" data-item="{{item}}">
+    <!-- 个人信息+跟进信息 -->
+    <view class="follow-info">
+      <view class="follow-head">
+        <!-- <image wx:if="{{userInfo.avatar!=null}}" src="{{imageUrl+userInfo.avatar}}"></image>
+        <image wx:else src="/image/personal/un_login.png"></image> -->
+        <text>{{item.operateEmpName}}</text>
+        <text>{{item.followTypeName}}</text>
+      </view>
+      <text class="follow-time">{{item.createTime}}</text>
+    </view>
+    <!-- 跟进描述 -->
+    <view class="follow-desc">
+      <view class="follow-desc-item">
+        <text>跟进内容：</text>
+        <text>{{item.followContent}}</text>
+      </view>
+      <view class="follow-desc-item">
+        <text>跟进产品：</text>
+        <text wx:for="{{item.clueFollowSpuList}}" wx:key="cIndex" wx:for-index="cIndex" wx:for-item="cItem">
+          <text>{{cItem.followSpuName}}</text>
+          <text wx:if="{{cIndex!=item.clueFollowSpuList.length-1}}">，</text>
+        </text>
+      </view>
+      <view class="follow-desc-item">
+        <text>下次跟进时间：</text>
+        <text wx:if="{{item.nextFollowTime!=null&&item.nextFollowTime!=''}}">{{item.nextFollowTime}}</text>
+        <text wx:else>-</text>
+      </view>
+    </view>
+  </view>
+</view>

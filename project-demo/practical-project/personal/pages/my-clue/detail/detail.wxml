@@ -1,0 +1,74 @@
+<!--personal/pages/my-clue/detail/detail.wxml-->
+<wxs src="/utils/clue/clue.wxs" module="tools"></wxs>
+<view class="clue-detail">
+  <!-- 线索头部信息 -->
+  <view class="clue-head" wx:if="{{active != 1}}">
+    <view class="clue-head-title">
+      <view class="clue-head-name">
+        <text wx:if="{{clueType == 2}}">{{clueInfo.companyName}}</text>
+        <text wx:else>{{clueInfo.contactName}}</text>
+        <image wx:if="{{clueInfo.isAutoConversion}}" class="common-certify-sty" src="/personal/image/my-clue/icon_activation@2x.png"></image>
+        <text class="common-tag-sty" wx:if="{{clueInfo.clueStatusId&&clueInfo.clueStatusId!=0}}">{{tools.clueStatus(clueInfo.clueStatusId)}}</text>
+      </view>
+      <image bindtap="copyText" data-text="{{clueType == 2?clueInfo.companyName:clueInfo.contactName}}" class="common-img-sty" src="/personal/image/my-clue/icon_duplicate@2x.png"></image>
+    </view>
+    <view class="clue-head-no">
+      <view>
+        <text>线索编号：</text>
+        <text>{{clueInfo.clueNo}}</text>
+      </view>
+      <image bindtap="copyText" data-text="{{clueInfo.clueNo}}" class="common-img-sty" src="/personal/image/my-clue/icon_duplicate@2x.png"></image>
+    </view>
+    <view class="clue-head-no">
+      <view class="clue-source">
+        <text>线索来源：</text>
+        <text wx:if="{{clueInfo.isAutoConversion}}">用户转化</text>
+        <text wx:else>{{tools.createType(clueInfo.isUserConversion)}}</text>
+        <text wx:if="{{(clueInfo.isUserConversion||clueInfo.isAutoConversion)&&(clueInfo.userNo!=''&&clueInfo.userNo!=null)}}">（{{clueInfo.userNo}}）</text>
+      </view>
+    </view>
+    <view class="clue-head-man bew-sty">
+      <text>客户归属：{{tools.filterNull(clueInfo.clueUserEmpName)}}</text>
+      <text class="follow-sty">最近跟进：{{clueInfo.lastClueFollowTime||'暂无数据'}}</text>
+    </view>
+    <view class="clue-head-man">
+      <view class="head-man-item">
+        <text wx:if="{{clueInfo.clueStatusId==0&&clueInfo.clueAttributionEmpId == userInfo.id}}" bindtap="showEmpSheet" data-type="0">线索归属：{{clueInfo.clueAttributionEmpName}}</text>
+        <text wx:else>线索归属：{{clueInfo.clueAttributionEmpName}}</text>
+        <image bindtap="showEmpSheet" data-type="0" wx:if="{{clueInfo.clueStatusId==0&&clueInfo.clueAttributionEmpId == userInfo.id}}" class="common-angle-sty" src="/personal/image/my-clue/icon_drop-down@2x.png"></image>
+      </view>
+      <view class="head-man-item">
+        <text wx:if="{{clueInfo.clueStatusId==0&&((clueInfo.clueAttributionEmpId == userInfo.id)||(clueInfo.clueSalesmanEmpId == userInfo.id))}}" bindtap="showEmpSheet" data-type="1">业务员：{{clueInfo.clueSalesmanEmpName}}</text>
+        <text wx:else>业务员：{{clueInfo.clueSalesmanEmpName}}</text>
+        <image bindtap="showEmpSheet" data-type="1" wx:if="{{clueInfo.clueStatusId==0&&((clueInfo.clueAttributionEmpId == userInfo.id)||(clueInfo.clueSalesmanEmpId == userInfo.id))}}" class="common-angle-sty" src="/personal/image/my-clue/icon_drop-down@2x.png"></image>
+      </view>
+
+    </view>
+    <view class="clue-head-btn">
+      <text wx:if="{{(clueInfo.clueStatusId==0)&&(userInfo.id==clueInfo.clueSalesmanEmpId)}}" bindtap="enterContract">录入合同</text>
+      <text bindtap="toGenerateOrder" wx:if="{{clueInfo.clueStatusId==0}}">发起订单</text>
+      <text bindtap="toEditClue">编辑</text>
+      <text bindtap="toFollow" wx:if="{{clueInfo.clueStatusId == 0}}">跟进</text>
+      <text wx:if="{{clueInfo.clueStatusId == 2||clueInfo.clueStatusId == 3}}" bindtap="receive">领取</text>
+      <text wx:if="{{clueInfo.clueStatusId == 1}}" bindtap="deleteClue">删除</text>
+    </view>
+  </view>
+
+  <!-- tab栏切换 -->
+  <view class="clue-tab {{active == 1?'fixed-sty':''}}">
+    <van-tabs active="{{ active }}" color="#0082FC" lazy-render="{{false}}" bind:change="changeTab">
+      <van-tab title="线索信息" name="0"></van-tab>
+      <van-tab title="订单记录" name="1"></van-tab>
+      <van-tab title="跟进记录" name="2"></van-tab>
+    </van-tabs>
+  </view>
+
+  <view>
+    <clue-info wx:if="{{active == 0}}" clueInfo="{{clueInfo}}" clueType="{{clueType}}" transInfo="{{transInfo}}"></clue-info>
+    <order-records id="order" wx:if="{{active == 1}}" clueType="{{clueType}}" clueId="{{clueId}}"></order-records>
+    <follow-records wx:if="{{active == 2}}" id="follow" clueInfo="{{clueInfo}}" userInfo="{{userInfo}}" clueType="{{clueType}}" clueId="{{clueId}}"></follow-records>
+  </view>
+</view>
+
+<!-- 弹出员工选择下拉框 -->
+<query-emp bind:selectEmp="selectEmp" id="query-emp" title="{{allotInfo.type == 0?'分配线索归属':'分配业务员'}}"></query-emp>
